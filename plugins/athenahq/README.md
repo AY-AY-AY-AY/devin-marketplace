@@ -11,10 +11,18 @@ The plugin connects to AthenaHQ's hosted MCP server:
 https://api.athenahq.ai/api/mcp
 ```
 
-Sign in with your AthenaHQ account when Devin prompts you to connect, then choose
-your organization. The plugin uses OAuth; no API key or client secret belongs in
-the manifest. Account analytics and write tools follow your existing access and
-role permissions. Writes use the dashboard's validation and audit logging, and
+In Devin Cloud, open the installed plugin's **athenahq** MCP settings and choose
+**Connect MCP**. Sign in with your AthenaHQ account, choose your organization, and
+approve the connection before starting a session.
+
+The manifest includes a public OAuth client ID registered for Devin Cloud at
+`app.devin.ai`, with callback `https://api.devin.ai/mcp/oauth/callback`. It is not a
+secret and grants no account access without your authorization. No API key or
+client secret belongs in the manifest. Dedicated Devin deployments and local CLI
+clients need an OAuth client registered for their own callback URL.
+
+Account analytics and write tools follow your existing access and role
+permissions. Writes use the dashboard's validation and audit logging, and
 some actions consume credits or permanently delete data.
 
 See the [MCP documentation](https://docs.athenahq.ai/api-reference/mcp) for available
@@ -30,15 +38,9 @@ tools, permissions, and API-key setup for clients that require it.
 
 In Devin Cloud, open **Customize → Plugins → Add plugin → Upload .zip** and upload
 a zip containing this directory's contents, including `.devin-plugin/plugin.json`.
-Start a new session, connect your AthenaHQ account, and ask Devin to list your
-websites. Confirm that it calls `list_websites` successfully.
-
-With the Devin CLI, install this directory locally, then start a session:
-
-```bash
-devin plugins install --local /absolute/path/to/devin-plugin
-devin
-```
+Wait for indexing to finish, choose **Connect MCP**, and complete OAuth. Start a
+new session and ask Devin to list your websites. Confirm that it calls
+`list_websites` successfully.
 
 ## Marketplace contribution
 

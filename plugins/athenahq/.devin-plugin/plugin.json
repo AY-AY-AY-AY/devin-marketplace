@@ -8,7 +8,8 @@
   "keywords": ["Monitoring & Analytics"],
   "mcpServers": {
     "athenahq": {
-      "url": "https://api.athenahq.ai/api/mcp"
+      "url": "https://api.athenahq.ai/api/mcp",
+      "oauthClientId": "bd1696e3-d475-486a-8a2b-73b9f4ac36ad"
     }
   }
 }
